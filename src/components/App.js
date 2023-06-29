@@ -24,13 +24,12 @@ useEffect(() => {
  };
   
   const renderQuotesList = () => {
-    const filteredQuotes = quotesList.filter((eachQuote)=> eachQuote.name.toLowerCase().includes(quotesSearch.toLowerCase())
-    );
-    return filteredQuotes.map((eachQuote)=>(
-      <li key={eachQuote.quote}>
-        <div className='quotes'>
-        <p>{eachQuote.quote}</p><p className='name'>-{eachQuote.character}</p></div>
-      </li>
+    /*const filteredQuotes = quotesList.filter((eachQuote)=> eachQuote.name.toLowerCase().includes(quotesSearch.toLowerCase())
+    );*/
+    return quotesList.map((eachQuote)=>(
+      <ul key={eachQuote.quote} className='quotes'>
+        {eachQuote.quote}<p className='name'>-{eachQuote.character}</p>
+      </ul>
     
   ));
   };
@@ -41,12 +40,9 @@ useEffect(() => {
   <label>Filtrar por frase</label>
   <input type= 'text' name ='' placeholder='' value='' onInput=''/>
   <label>Filtrar por personaje</label>
-  <input type= 'text' name ='' placeholder='' value={quotesSearch} onInput={handleQuotesSearch}/>
+  <input type= 'text' name ='' placeholder='' value={quotesSearch} onChange={handleQuotesSearch}/>
   </form>
-  <ul>
-    <li>
-      <p>{renderQuotesList()}</p>
-    </li>
+  <ul>{renderQuotesList()}
   </ul>
   </body>
 );
