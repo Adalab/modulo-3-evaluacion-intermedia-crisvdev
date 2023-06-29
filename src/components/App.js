@@ -22,8 +22,8 @@ useEffect(() => {
  const handleQuotesSearch = (ev) => {
   setQuotesSearch(ev.target.value);
  };
-  /* RETURN --> HTML */
-  const renderQuoteList = () => {
+  
+  const renderQuotesList = () => {
     const filteredQuotes = quotesList.filter((eachQuote)=> eachQuote.name.toLowerCase().includes(quotesSearch.toLowerCase())
     );
     return filteredQuotes.map((eachQuote)=>(
@@ -45,7 +45,7 @@ useEffect(() => {
   </form>
   <ul>
     <li>
-      <p>{renderQuoteList()}</p>
+      <p>{renderQuotesList()}</p>
     </li>
   </ul>
   </body>
